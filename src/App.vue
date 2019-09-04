@@ -29,9 +29,8 @@
               v-model="chartConfig.type"
               value="chartConfig.type"
             >
-              <option value="line">Line</option>
-              <option value="bar">Bar</option>
               <option value="axis-mixed">Mixed</option>
+              <option value="donut">Donut</option>
               <option value="pie">Pie</option>
               <option value="percentage">Percentage</option>
             </select>
