@@ -22,6 +22,7 @@ export default {
 		widthClass() {
 			if (this.width === 'half') return 'w-full md:w-1/2 px-3 mb-4 md:mb-0'
 			if (this.width === 'third') return 'w-full md:w-1/3 px-3 mb-4 md:mb-0'
+			if (this.width === 'two-third') return 'w-full md:w-2/3 px-3 mb-4 md:mb-0'
 			else return 'w-full px-3'
 		}
 	}

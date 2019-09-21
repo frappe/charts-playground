@@ -13,6 +13,7 @@
           <div class="relative">
             <select
               class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              v-model="chartType"
             >
               <option value="axis-mixed">Mixed</option>
               <option value="donut">Donut</option>
@@ -83,6 +84,11 @@ export default {
   components: {
     Title: Title,
     AxisChart: AxisChart
+  },
+  data() {
+    return {
+      chartType: 'axis-mixed'
+    }
   },
   methods: {
     updateChart(config) {

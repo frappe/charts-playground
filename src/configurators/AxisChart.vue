@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="flex flex-wrap -mx-3 mb-4">
-      <Data label="Title" placeholder="Your Awesome Title" v-model="chartConfig.title" />
+      <Data label="Title" placeholder="Your Awesome Title" v-model="chartConfig.title" width="two-third"/>
+      <Data label="Height" placeholder="300" v-model="chartConfig.height" width="third"/>
     </div>
     <div class="flex flex-wrap -mx-3 mb-4">
       <Data
@@ -36,7 +37,7 @@ export default {
     return {
       chartConfig: {
         title: "My Awesome Chart",
-        type: "axis-mixed", // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+        type: "bar", // or 'bar', 'line', 'scatter', 'pie', 'percentage'
         height: 300,
         truncateLegends: 1,
         data: {
