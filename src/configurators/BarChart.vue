@@ -46,7 +46,7 @@ export default {
     return {
       chartConfig: {
         title: "My Awesome Chart",
-        type: "line", // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+        type: "bar", // or 'bar', 'line', 'scatter', 'pie', 'percentage'
         height: 300,
         truncateLegends: 1,
         barOptions: {
