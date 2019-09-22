@@ -16,9 +16,11 @@
               v-model="chartType"
             >
               <option value="axis-mixed">Mixed</option>
-              <option value="donut">Donut</option>
-              <option value="pie">Pie</option>
-              <option value="percentage">Percentage</option>
+              <option value="line">Line</option>
+              <option value="bar">Bar</option>
+              <!-- <option value="donut">Donut</option> -->
+              <!-- <option value="pie">Pie</option> -->
+              <!-- <option value="percentage">Percentage</option> -->
             </select>
             <div
               class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
@@ -35,7 +37,7 @@
             </div>
           </div>
         </div>
-        <AxisChart @updateChart="updateChart"/>
+        <component :is="currentComponent" @updateChart="updateChart"/>
       </div>
       <!-- <div id="controls">
         <div class="flex flex-row">
@@ -77,22 +79,38 @@
 <script>
 import { Chart } from "frappe-charts/dist/frappe-charts.min.esm";
 import AxisChart from "@/configurators/AxisChart"
+import BarChart from "@/configurators/BarChart"
+import LineChart from "@/configurators/LineChart"
 import Title from "@/components/Title"
+
+const chartComponents = {
+  'axis-mixed': AxisChart,
+  'bar': BarChart,
+  'line': LineChart
+}
 
 export default {
   name: "app",
   components: {
     Title: Title,
-    AxisChart: AxisChart
+    AxisChart: AxisChart,
+    BarChart: BarChart,
+    LineChart: LineChart
   },
   data() {
     return {
-      chartType: 'axis-mixed'
+      chartType: 'axis-mixed',
+      currentComponent: AxisChart
     }
   },
   methods: {
     updateChart(config) {
       window.chart = new Chart("#chart", config);
+    }
+  },
+  watch: {
+    chartType: function() {
+      this.currentComponent = chartComponents[this.chartType]
     }
   }
 };

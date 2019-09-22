@@ -2,7 +2,12 @@
   <div>
     <div class="flex flex-wrap -mx-3 mb-4">
       <Data label="Title" placeholder="Your Awesome Title" v-model="chartConfig.title" width="full"/>
-      <!-- <Data label="Height" placeholder="300" v-model="chartConfig.height" width="third"/> -->
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-4">
+      <Data label="Height" placeholder="300" v-model="chartConfig.height" width="third"/>
+      <!-- <Data label="Stacked" type="number" placeholder="300" v-model="chartConfig.barOptions.stacked" width="third"/> -->
+      <Data label="Space Ratio" type="number" placeholder="300" v-model="chartConfig.barOptions.spaceRatio" width="third"/>
+      <Toggle label="Stacked" v-model="chartConfig.barOptions.stacked"/>
     </div>
     <div class="flex flex-wrap -mx-3 mb-4">
       <Data
@@ -28,54 +33,36 @@
 </template>
 <script>
 import Data from "@/controls/Data";
+import Toggle from "@/controls/Toggle";
+import { barCompositeData } from "@/data.js"
 
 export default {
   name: "AxisChart",
   components: {
-    Data: Data
+    Data: Data,
+    Toggle: Toggle
   },
   data() {
     return {
       chartConfig: {
         title: "My Awesome Chart",
-        type: "axis-mixed", // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+        type: "line", // or 'bar', 'line', 'scatter', 'pie', 'percentage'
         height: 300,
         truncateLegends: 1,
+        barOptions: {
+          stacked: true,
+          spaceRatio: 0.5,
+        },
+        colors: ["violet", "light-blue", "#46a9f9"],
         data: {
-          labels: [
-            "12am-3am",
-            "3am-6am",
-            "6am-9am",
-            "9am-12pm",
-            "12pm-3pm",
-            "3pm-6pm",
-            "6pm-9pm",
-            "9pm-12am"
-          ],
-          datasets: [
-            {
-              name: "Some Data",
-              chartType: "bar",
-              values: [25, 40, 30, 35, 8, 52, 17, -4]
-            },
-            {
-              name: "Another Set",
-              chartType: "bar",
-              values: [25, 50, -10, 15, 18, 32, 27, 14]
-            },
-            {
-              name: "Yet Another Label",
-              chartType: "line",
-              values: [15, 20, -3, -15, 58, 12, -17, 37]
-            }
-          ],
+          ...barCompositeData,
           yMarkers: [
             { label: "Marker", value: 70, options: { labelPos: "left" } }
           ],
           yRegions: [
             {
               label: "Region",
-              start: -10,
+              start: 0,
               end: 50,
               options: { labelPos: "right" }
             }
@@ -90,6 +77,7 @@ export default {
   watch: {
     chartConfig: {
       handler: function () {
+        console.log(this.chartConfig);
         this.$emit('updateChart', this.chartConfig);
       },
       deep: true
