@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "frappe-charts": "^1.2.4",
+    "frappe-charts": "^1.3.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
