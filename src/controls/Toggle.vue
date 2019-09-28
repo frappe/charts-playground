@@ -15,7 +15,6 @@ export default {
 	props: ['label', 'value', 'width'],
 	watch: {
 		value() {
-			console.log(this.value)
 			this.$emit('input', this.value)
 		}
 	},
