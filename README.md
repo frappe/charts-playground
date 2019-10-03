@@ -1,29 +1,6 @@
-# charts-playground
+# Frappe Charts Playground
+This project is a work in progress, you can see a demo on [playground.shivam.dev](https://playground.shivam.dev).
 
 ## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. In the project directory run `yarn install`
+1. Then run `yarn run serve`, this compiles and hot-reloads for development
