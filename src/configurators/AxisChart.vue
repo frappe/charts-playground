@@ -39,7 +39,7 @@ export default {
       chartConfig: {
         title: "My Awesome Chart",
         type: "axis-mixed", // or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 300,
+        height: 350,
         truncateLegends: 1,
         data: {
           labels: [

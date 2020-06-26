@@ -47,13 +47,12 @@ export default {
       chartConfig: {
         title: "My Awesome Chart",
         type: "bar", // or 'bar', 'line', 'scatter', 'pie', 'percentage'
-        height: 300,
+        height: 400,
         truncateLegends: 1,
         barOptions: {
           stacked: true,
           spaceRatio: 0.5,
         },
-        colors: ["violet", "light-blue", "#46a9f9"],
         data: {
           ...barCompositeData,
           yMarkers: [
