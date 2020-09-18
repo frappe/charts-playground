@@ -1,7 +1,7 @@
 <template>
 	<div class="flex m-5">
 		<div
-			class="w-1/4 flex flex-col justify-between bg-white overflow-hidden shadow-lg p-5 rounded-lg"
+			class="w-1/4 flex flex-col justify-between bg-white overflow-hidden shadow p-5 rounded-lg"
 		>
 			<div class="chart-config">
 				<Title />
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div class="w-3/4 ml-5">
-			<div class="bg-white rounded shadow-lg">
+			<div class="bg-white shadow p-5 rounded-lg">
 				<div id="chart"></div>
 			</div>
 		</div>
